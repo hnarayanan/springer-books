@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-      <title>A collection of free books from Springer</title>
+    <title>A collection of free books from Springer</title>
   </head>
   <body>
     <div class="container mt-4">
@@ -19,42 +19,37 @@
         </div>
       </div>
 
-      <h2>Engineering</h2>
+      <h2 id="Categories">Categories</h2>
+
+      <ul>
+        {% for group in grouped_books.keys() %}
+        <li><a href="#{{ group }}">{{ group }}</a></li>
+        {% endfor %}
+      </ul>
+
+      {% for group, books in grouped_books.items() %}
+
+      <h2 class="mt-4" id="{{ group }}">{{ group }}</h2>
 
       <div class="row mt-2">
-        <div class="col-md">
+        {% for book in books %}
+        <div class="col-md-4">
           <div class="card mb-2">
             <div class="card-body">
-              <h5 class="card-title">Intuitive Probability and Random Processes using MATLAB®</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Steven Kay, 2006</h6>
-              <a href="http://link.springer.com/openurl?genre=book&isbn=978-0-387-24158-6" class="btn btn-primary stretched-link">Go get it</a>
+              <h5 class="card-title">{{ book[1]['Book Title'] }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ book[1]['Author'] }}<br><small>{{ book[1]['Edition'] }}</small></h6>
+              <a href="{{ book[1]['OpenURL'] }}" class="btn btn-primary stretched-link">Go get it</a>
             </div>
           </div>
         </div>
-        <div class="col-md">
-          <div class="card mb-2">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card mb-2">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
+        {% endfor %}
+        <div class="col-md-12">
+          <a href="#Categories">View all categories ⬆</a>
         </div>
       </div>
-        <p class="blockquote-footer mt-4">Made in exasperation by <a href="https://harishnarayanan.org/">Harish Narayanan</a>.</p>
+
+      {% endfor %}
+      <p class="blockquote-footer mt-4">Compiled in exasperation by <a href="https://harishnarayanan.org/">Harish Narayanan</a>.</p>
     </div>
 
   </body>
