@@ -33,11 +33,12 @@
 
       <div class="row mt-2">
         {% for book in books %}
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="card mb-2">
             <div class="card-body">
               <h5 class="card-title">{{ book[1]['Book Title'] }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ book[1]['Author'] }}<br><small>{{ book[1]['Edition'] }}</small></h6>
+              <img class="card-img-top mb-2" src="https://media.springernature.com/w306/springer-static/cover-hires/book/{{ book[1]['Electronic ISBN'] }}"/>
               <a href="{{ book[1]['OpenURL'] }}" class="btn btn-primary stretched-link">Go get it</a>
             </div>
           </div>
