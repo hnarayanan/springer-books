@@ -1,21 +1,22 @@
 <!doctype html>
 <html lang="en">
+
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>A collection of free books from Springer</title>
   </head>
+
   <body>
     <div class="container mt-4">
+
       <h1>A collection of free books from Springer</h1>
+
       <div class="row">
         <div class="col-lg-8">
           <p>To help support everyone during Covid-19, <a href="https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960">Springer has released a ton of free textbooks</a>. This is great, but their web page for this is not super friendly, and expects you to <a href="https://resource-cms.springernature.com/springer-cms/rest/v1/content/17858272/data/v8">download some Excel sheet</a> to figure out what they have on offer.</p>
-          <p>This web page hopes to make it easier to access <a href="https://www.youtube.com/watch?v=p-1eFrYmGSU">all this knawledge</a>. You’re welcome.</p>
+          <p>This web page hopes to make it easier to access all this knowledge. You can <a href="https://twitter.com/copingbear">follow me on Twitter</a> for more.</p>
         </div>
       </div>
 
@@ -28,7 +29,6 @@
       </ul>
 
       {% for group, books in grouped_books.items() %}
-
       <h2 class="mt-4" id="{{ group }}">{{ group }}</h2>
 
       <div class="row mt-2">
@@ -43,12 +43,13 @@
           </div>
         </div>
         {% endfor %}
+
         <div class="col-md-12">
           <a href="#Categories">View all categories ⬆</a>
         </div>
       </div>
-
       {% endfor %}
+
       <p class="blockquote-footer mt-4">Compiled in exasperation by <a href="https://harishnarayanan.org/">Harish Narayanan</a>.</p>
     </div>
 
