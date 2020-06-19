@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
   <head>
@@ -37,20 +37,16 @@
         {% for book in books %}
         <div class="col-md-4">
           <div class="card mb-2">
-            <div class="card-body">
+            <div class="card-body" style="transform: rotate(0);">
               <h5 class="card-title">{{ book[1]['Book Title'] }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ book[1]['Author'] }}<br><small>{{ book[1]['Edition'] }}</small></h6>
-              {% if book[1]["goodreads_review"] is not none and book[1]["goodreads_review"]["work_ratings_count"] > 0 %}
-              <hr />
-              <h6 class="card-subtitle mb-2 text-muted">
-                <a href="https://goodreads.com/book/show/{{ book[1]['goodreads_review']['id'] }}" target="_blank">Goodreads Rating</a>
-              </h6>
-              <h6 class="card-subtitle mb-2 text-muted">
-                <small>{{ book[1]['goodreads_review']['average_rating'] }} / 5 with {{ book[1]['goodreads_review']['work_ratings_count'] }} rating(s)</small>
-              </h6>
-              {% endif %}
-              <a href="{{ book[1]['OpenURL'] }}" class="btn btn-primary">Go get it</a>
+              <a href="{{ book[1]['OpenURL'] }}" class="btn btn-primary stretched-link">Go get it</a>
             </div>
+            {% if book[1]["goodreads_review"] is not none and book[1]["goodreads_review"]["work_ratings_count"] > 0 %}
+            <div class="card-footer text-muted">
+              <small>Rated {{ book[1]['goodreads_review']['average_rating'] }} / 5 with {{ book[1]['goodreads_review']['work_ratings_count'] }} rating{{ book[1]['goodreads_review']['work_ratings_count']|pluralize }} on <a href="https://goodreads.com/book/show/{{ book[1]['goodreads_review']['id'] }}">Goodreads</a>.</small>
+            </div>
+            {% endif %}
           </div>
         </div>
         {% endfor %}
