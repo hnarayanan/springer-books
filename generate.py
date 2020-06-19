@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 from jinja2 import Environment, FileSystemLoader
 
-good_reads_api_key = input("Enter Good Reads Api Key: ")
+good_reads_api_key = input("Enter Goodreads Api Key: ")
 
 books_df = pd.read_excel("./input/Free+English+textbooks.xlsx")
 grouped_books_df = books_df.groupby(["English Package Name"])
