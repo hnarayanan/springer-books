@@ -43,10 +43,10 @@
               {% if book[1]["goodreads_review"] is not none and book[1]["goodreads_review"]["work_ratings_count"] > 0 %}
               <hr />
               <h6 class="card-subtitle mb-2 text-muted">
-                <a href="https://goodreads.com/book/show/{{ book[1]["goodreads_review"]["id"] }}" target="_blank">Goodreads Rating</a>
+                <a href="https://goodreads.com/book/show/{{ book[1]['goodreads_review']['id'] }}" target="_blank">Goodreads Rating</a>
               </h6>
               <h6 class="card-subtitle mb-2 text-muted">
-                <small>{{ book[1]["goodreads_review"]["average_rating"] }} / 5 with {{ book[1]["goodreads_review"]["work_ratings_count"] }} rating(s)</small>
+                <small>{{ book[1]['goodreads_review']['average_rating'] }} / 5 with {{ book[1]['goodreads_review']['work_ratings_count'] }} rating(s)</small>
               </h6>
               {% endif %}
               <a href="{{ book[1]['OpenURL'] }}" class="btn btn-primary">Go get it</a>

@@ -1,8 +1,11 @@
 import pandas as pd
 import requests
+import configparser
 from jinja2 import Environment, FileSystemLoader
 
-good_reads_api_key = input("Enter Goodreads Api Key: ")
+config = configparser.ConfigParser()
+config.read("config.ini")
+good_reads_api_key = config["goodreads.com"]["key"]
 
 books_df = pd.read_excel("./input/Free+English+textbooks.xlsx")
 grouped_books_df = books_df.groupby(["English Package Name"])
